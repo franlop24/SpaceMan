@@ -178,6 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,11 +277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3356978067757041844, guid: a23b057272cab4447950eb51c1296d11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.74
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 3356978067757041844, guid: a23b057272cab4447950eb51c1296d11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.69
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 3356978067757041844, guid: a23b057272cab4447950eb51c1296d11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -316,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform-L
       objectReference: {fileID: 0}
+    - target: {fileID: 3356978067757041846, guid: a23b057272cab4447950eb51c1296d11, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23b057272cab4447950eb51c1296d11, type: 3}
 --- !u!1001 &8076733255351543156
@@ -331,11 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8076733255393858640, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.75
+      value: -4.29
       objectReference: {fileID: 0}
     - target: {fileID: 8076733255393858640, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8076733255393858640, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
       propertyPath: m_LocalPosition.z
@@ -372,6 +379,10 @@ PrefabInstance:
     - target: {fileID: 8076733255393858645, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076733255393858645, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 114869a44d0aa479ebf31e0a01faa926, type: 3}
