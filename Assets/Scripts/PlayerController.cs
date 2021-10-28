@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     //Variables del movimiento del personaje
     public float jumpForce = 6f;
+    public float runningSpeed = 2f;
+
     private Rigidbody2D rigidBody;
     private Animator animator;
 
@@ -40,6 +42,14 @@ public class PlayerController : MonoBehaviour
         //Debug.DrawRay(this.transform.position, Vector2.down * 2.0f, Color.green); //Pintar Raycast
     }
 
+    public void FixedUpdate()
+    {
+        if(rigidBody.velocity.x < runningSpeed)
+        {
+            rigidBody.velocity = new Vector2(runningSpeed, rigidBody.velocity.y);
+        }
+    }
+
     void Jump()
     {
         if (IsTouchingTheGround())
@@ -54,12 +64,10 @@ public class PlayerController : MonoBehaviour
         if(Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f, groundMask))
         {
             //TODO: programar la lógica de contacto con el suelo
-            //animator.enabled = true;
             return true;
         } else
         {
             //TODO: programar la lógica de no contacto
-            //animator.enabled = false;
             return false;
         }
     }
