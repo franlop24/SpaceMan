@@ -16,8 +16,17 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask groundMask;
 
+    //Instancia compartida (Singleton)
+    public static PlayerController sharedPlayer;
+
     private void Awake()
     {
+        //Se crea el objeto una única vez
+        if(sharedPlayer == null)
+        {
+            sharedPlayer = this;
+        }
+
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -64,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if(Physics2D.Raycast(this.transform.position, Vector2.down, 1.5f, groundMask))
         {
             //TODO: programar la lógica de contacto con el suelo
+            GameManager.sharedInstance.currentGameState = GameState.inGame;
             return true;
         } else
         {
