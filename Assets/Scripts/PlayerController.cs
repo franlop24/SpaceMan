@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 6f;
     Rigidbody2D rigidBody;
     Animator animator;
+    public float runningSpeed = 2f;
 
     const string STATE_ALIVE = "isAlive";
     const string STATE_ON_THE_GROUND = "isOnTheGround";
@@ -39,6 +40,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool(STATE_ON_THE_GROUND, IsTouchingTheGround());
 
         Debug.DrawRay(this.transform.position, Vector2.down * 1.5f, Color.red);
+    }
+
+    void FixedUpdate()
+    {
+        if(rigidBody.velocity.x < runningSpeed)
+        {
+            rigidBody.velocity = new Vector2(runningSpeed, rigidBody.velocity.y);
+        }
     }
 
     void Jump()
