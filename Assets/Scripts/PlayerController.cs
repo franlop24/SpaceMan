@@ -70,6 +70,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        animator.SetBool(STATE_ALIVE, false);
+        GameManager.sharedInstance.currentGameState = GameState.gameOver;
+    }
+
     //Nos indica si el personaje está o no tocando el suelo
     bool IsTouchingTheGround()
     {
