@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameSate
+public enum GameState
 {
     menu,
     inGame,
@@ -12,7 +12,7 @@ public enum GameSate
 public class GameManager : MonoBehaviour
 {
 
-    public GameSate currentGameState = GameSate.menu;
+    public GameState currentGameState = GameState.menu;
 
     public static GameManager sharedInstance;
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Submit"))
         {
             StartGame(); 
         }
@@ -41,28 +41,28 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SetGameSate(GameSate.inGame);
+        SetGameSate(GameState.inGame);
     }
 
     public void GameOver()
     {
-        SetGameSate(GameSate.gameOver);
+        SetGameSate(GameState.gameOver);
     }
 
     public void BackToMenu()
     {
-        SetGameSate(GameSate.menu);
+        SetGameSate(GameState.menu);
     }
 
-    void SetGameSate(GameSate newGameState)
+    void SetGameSate(GameState newGameState)
     {
-        if(newGameState == GameSate.menu)
+        if(newGameState == GameState.menu)
         {
             //TODO: Preparar la lógica para el menu
-        } else if(newGameState == GameSate.inGame)
+        } else if(newGameState == GameState.inGame)
         {
             //TODO: Preparar la escena para jugar
-        } else if(newGameState == GameSate.gameOver)
+        } else if(newGameState == GameState.gameOver)
         {
             //TODO: Preparar la lógica para el Game Over
         }
