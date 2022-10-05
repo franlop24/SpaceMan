@@ -16,8 +16,14 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask groundMask;
 
+    public static PlayerController player;
+
     void Awake()
     {
+        if (!player)
+        {
+            player = this;
+        }
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -68,6 +74,8 @@ public class PlayerController : MonoBehaviour
         {
             //TODO: programar lógica de contacto con el suelo
             //animator.enabled = true;
+            //GameManager.sharedInstance.currentGameState = GameSate.inGame;
+            GameManager.sharedInstance.currentGameState = GameSate.inGame;
             return true;
         }
         else
