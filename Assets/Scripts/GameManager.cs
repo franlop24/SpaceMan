@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit") && currentGameState != GameState.inGame)
         {
             StartGame(); 
         }
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         } else if(newGameState == GameState.inGame)
         {
             //TODO: Preparar la escena para jugar
+            PlayerController.player.StartGame();
         } else if(newGameState == GameState.gameOver)
         {
             //TODO: Preparar la lógica para el Game Over
